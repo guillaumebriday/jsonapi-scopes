@@ -9,23 +9,22 @@ Gem::Specification.new do |spec|
   spec.version     = Jsonapi::Scopes::VERSION
   spec.authors     = ["Guillaume Briday"]
   spec.email       = ["guillaumebriday@gmail.com"]
-  spec.homepage    = "TODO"
-  spec.summary     = "TODO: Summary of Jsonapi::Scopes."
-  spec.description = "TODO: Description of Jsonapi::Scopes."
+  spec.homepage    = "https://github.com/guillaumebriday/jsonapi-scopes"
+  spec.summary     = "A gem to use filters and scopes for JSON:API."
   spec.license     = "MIT"
 
   # Prevent pushing this gem to RubyGems.org. To allow pushes either set the 'allowed_push_host'
   # to allow pushing to a single host or delete this section to allow pushing to any host.
-  if spec.respond_to?(:metadata)
-    spec.metadata["allowed_push_host"] = "TODO: Set to 'http://mygemserver.com'"
-  else
-    raise "RubyGems 2.0 or newer is required to protect against " \
-      "public gem pushes."
-  end
+  # if spec.respond_to?(:metadata)
+  #   spec.metadata["allowed_push_host"] = "TODO: Set to 'http://mygemserver.com'"
+  # else
+  #   raise "RubyGems 2.0 or newer is required to protect against " \
+  #     "public gem pushes."
+  # end
 
   spec.files = Dir["{app,config,db,lib}/**/*", "MIT-LICENSE", "Rakefile", "README.md"]
 
-  spec.add_dependency "rails", "~> 6.0.0.beta3"
+  spec.add_dependency "rails", "~> 6.0.0.rc1"
 
   spec.add_development_dependency "sqlite3"
 end
