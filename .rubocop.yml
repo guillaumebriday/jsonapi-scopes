@@ -1,0 +1,8 @@
+Metrics/LineLength:
+  Enabled: false
+
+Documentation:
+  Enabled: false
+
+Style/ClassAndModuleChildren:
+  Enabled: false

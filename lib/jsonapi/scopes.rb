@@ -1,4 +1,6 @@
-require "jsonapi/scopes/railtie"
+# frozen_string_literal: true
+
+require 'jsonapi/scopes/railtie'
 
 module Jsonapi
   module Scopes
