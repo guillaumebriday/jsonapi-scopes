@@ -17,14 +17,14 @@ module Jsonapi
       end
 
       def apply_filter(params)
-        results = self
+        records = self
         filtering_params = params.dig(:filter) || {}
 
         filtering_params.each do |key, value|
-          results = results.public_send(key, value) if value.present? && @filters.include?(key.to_sym)
+          records = records.public_send(key, value) if value.present? && @filters.include?(key.to_sym)
         end
 
-        results
+        records
       end
     end
   end
