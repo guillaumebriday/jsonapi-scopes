@@ -21,7 +21,7 @@ It acts as a regular scope.
 
 ```ruby
 class Contact < ActiveRecord::Base
-  include **Jsonapi::Scopes**
+  include Jsonapi::Scopes
 
   # Respond to `apply_filter`
   filter :first_name, ->(value) {
