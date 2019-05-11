@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 module Jsonapi
-  module Scopes
+  module Filter
     extend ActiveSupport::Concern
 
     included do
@@ -29,4 +29,3 @@ module Jsonapi
     end
   end
 end
-

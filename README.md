@@ -16,12 +16,14 @@ $ bundle
 ```
 
 ## Usage
+
+### Filter
 The gem add a `filter` method to define public scopes.
 It acts as a regular scope.
 
 ```ruby
 class Contact < ActiveRecord::Base
-  include Jsonapi::Scopes
+  include Jsonapi::Filter
 
   # Respond to `apply_filter`
   filter :first_name, ->(value) {
