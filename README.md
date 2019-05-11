@@ -7,7 +7,7 @@ This gem provides an easy way to use a filter query parameter from the [jsonapi 
 Add this line to your application's Gemfile:
 
 ```ruby
-gem 'jsonapi-scopes', git: 'https://github.com/guillaumebriday/jsonapi-scopes.git'
+gem 'jsonapi-scopes'
 ```
 
 And then execute:
