@@ -12,7 +12,7 @@ Gem::Specification.new do |spec|
   spec.authors     = ['Guillaume Briday']
   spec.email       = ['guillaumebriday@gmail.com']
   spec.homepage    = 'https://github.com/guillaumebriday/jsonapi-scopes'
-  spec.summary     = 'A gem to use filters and scopes for JSON:API.'
+  spec.summary     = 'A gem to use filtering and sorting from json:api specifications.'
   spec.license     = 'MIT'
 
   # Prevent pushing this gem to RubyGems.org. To allow pushes either set the 'allowed_push_host'
