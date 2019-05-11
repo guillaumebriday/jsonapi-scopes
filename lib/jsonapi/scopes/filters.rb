@@ -21,7 +21,7 @@ module Jsonapi
         filtering_params = params.dig(:filter) || {}
 
         filtering_params.each do |key, value|
-          records = records.public_send(key, value) if value.present? && @filters.include?(key.to_sym)
+          records = records.public_send(key, value) if @filters.include?(key.to_sym)
         end
 
         records
