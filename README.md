@@ -4,7 +4,7 @@
 [![](https://img.shields.io/github/license/guillaumebriday/jsonapi-scopes.svg)](https://github.com/guillaumebriday/jsonapi-scopes)
 
 # Jsonapi::Scopes
-This gem provides an easy way to use a filter query parameter from the [jsonapi specification](https://jsonapi.org/recommendations/#filtering).
+This gem allows you to filter and sort an ActiveRecord relation based on a request. This gem follows the [JSON:API specification](https://jsonapi.org/) as closely as possible.
 
 ## Installation
 Add this line to your application's Gemfile:
