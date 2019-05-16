@@ -95,5 +95,12 @@ You can even combine multiple sort `/contacts?sort=lastname,-firstname`
 ## Contributing
 Do not hesitate to contribute to the project by adapting or adding features ! Bug reports or pull requests are welcome.
 
+## Credits
+
+Inspired by:
+
++ [https://github.com/stefatkins/rails-starter-api](https://github.com/stefatkins/rails-starter-api)
++ [https://github.com/cerebris/jsonapi-resources](https://github.com/cerebris/jsonapi-resources)
+
 ## License
 The gem is available as open source under the terms of the [MIT License](https://opensource.org/licenses/MIT).
