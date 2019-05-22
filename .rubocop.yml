@@ -9,3 +9,6 @@ Style/ClassAndModuleChildren:
 
 Metrics/AbcSize:
   Enabled: false
+
+Metrics/BlockLength:
+  Enabled: false

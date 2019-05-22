@@ -16,4 +16,7 @@ gemspec
 # To use a debugger
 # gem 'byebug', group: [:development, :test]
 
+gem 'database_cleaner'
+gem 'factory_bot'
+gem 'rspec-rails'
 gem 'rubocop'
