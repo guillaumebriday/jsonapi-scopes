@@ -15,7 +15,7 @@ module Jsonapi
       end
 
       def apply_filter(params)
-        records = self
+        records = all
         filtering_params = params.dig(:filter) || {}
 
         filtering_params.each do |key, value|
