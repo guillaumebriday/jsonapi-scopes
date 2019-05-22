@@ -72,6 +72,7 @@ You can use `apply_sort` in your controller :
 class ContactsController < ApplicationController
   def index
     @contacts = Contact.apply_sort(params)
+    @contacts = Contact.apply_sort # to only apply default sort
   end
 end
 ```
