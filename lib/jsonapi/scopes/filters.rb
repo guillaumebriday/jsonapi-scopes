@@ -9,8 +9,6 @@ module Jsonapi
     end
 
     module ClassMethods
-      attr_reader :filters
-
       def filter(name, *args)
         scope(name, *args)
         @filters << name
