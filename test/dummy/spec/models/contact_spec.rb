@@ -32,6 +32,7 @@ RSpec.describe Contact, type: :model do
   describe '#apply_filter' do
     let!(:anakin) { create(:contact, first_name: 'Anakin', last_name: 'Skywalker') }
     let!(:harry) { create(:contact, first_name: 'Harry', last_name: 'Potter') }
+    let!(:peter) { create(:contact, first_name: 'Peter', last_name: 'Parker') }
 
     context 'with valid params' do
       let(:valid_params) do
@@ -43,6 +44,15 @@ RSpec.describe Contact, type: :model do
       it 'filters by first_name' do
         expect(Contact.apply_filter(valid_params)).to include(anakin)
         expect(Contact.apply_filter(valid_params)).to_not include(harry)
+      end
+
+      it 'filters by multiple first_name' do
+        valid_params = {
+          filter: { first_name: 'Anakin,Harry' }
+        }
+
+        expect(Contact.apply_filter(valid_params)).to include(anakin, harry)
+        expect(Contact.apply_filter(valid_params)).to_not include(peter)
       end
     end
 
