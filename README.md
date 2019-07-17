@@ -50,7 +50,9 @@ class ContactsController < ApplicationController
 end
 ```
 
-Then you can hit `/contacts?filter[first_name]=Bruce` to filter contacts where the last name exactly match `Bruce`.
+Then you can hit `/contacts?filter[first_name]=Bruce` to filter contacts where the first name exactly match `Bruce`.
+
+You can specify multiple matching filter values by passing a comma separated list of values: `/contacts?filter[first_name]=Bruce,Peter` will returns contacts where the first name exactly match `Bruce` or `Peter`.
 
 But `/contacts?filter[last_name]=Wayne` will be completely ignored.
 
