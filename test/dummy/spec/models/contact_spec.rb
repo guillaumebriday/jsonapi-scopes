@@ -91,6 +91,15 @@ RSpec.describe Contact, type: :model do
         expect(Contact.apply_sort(valid_params).pluck(:id)).to eq(expected_ids)
         expect(Contact.apply_sort(valid_params).pluck(:id)).to_not eq(not_expected_ids)
       end
+
+      it 'sorts by allowed fields only' do
+        valid_params = { sort: 'last_name' } # must be ignored
+        expected_ids = Contact.order(last_name: :desc).pluck(:id) # default sort
+        not_expected_ids = Contact.order(:last_name).pluck(:id) # params sort
+
+        expect(Contact.apply_sort(valid_params, allowed: [:first_name, :age]).pluck(:id)).to eq(expected_ids)
+        expect(Contact.apply_sort(valid_params, allowed: [:first_name, :age]).pluck(:id)).to_not eq(not_expected_ids)
+      end
     end
 
     context 'with invalid params' do
