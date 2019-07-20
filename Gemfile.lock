@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    jsonapi-scopes (0.1.4)
+    jsonapi-scopes (0.1.5)
       rails
 
 GEM
