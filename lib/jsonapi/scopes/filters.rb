@@ -19,7 +19,7 @@ module Jsonapi
         filtering_params = params.dig(:filter) || {}
 
         filtering_params.each do |key, value|
-          value = value.to_s.split(',').reject(&:blank?)
+          value = value.to_s.split(',').reject(&:blank?) if value.include?(',')
 
           records = records.public_send(key, value) if @filters.include?(key.to_sym)
         end
