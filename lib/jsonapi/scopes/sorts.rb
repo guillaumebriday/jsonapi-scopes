@@ -28,9 +28,12 @@ module Jsonapi
         default_order = default_order.transform_keys(&:to_sym)
 
         ordered_fields = convert_to_ordered_hash(fields)
-        filtered_fields = ordered_fields.select { |key, _| allowed_fields.include?(key) }
 
-        order = filtered_fields.presence || default_order
+        ordered_fields.each do |field, _|
+          raise InvalidAttributeError, "#{field} is not valid as sort attribute." unless allowed_fields.include?(field)
+        end
+
+        order = ordered_fields.presence || default_order
 
         self.order(order)
       end
