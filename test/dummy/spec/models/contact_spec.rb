@@ -63,8 +63,8 @@ RSpec.describe Contact, type: :model do
         }
       end
 
-      it 'does not filter by last_name' do
-        expect(Contact.apply_filter(invalid_params)).to include(anakin, harry)
+      it 'raises an exception' do
+        expect { Contact.apply_filter(invalid_params) }.to raise_exception(Jsonapi::InvalidAttributeError, 'last_name is not valid as filter attribute.')
       end
     end
   end
@@ -91,28 +91,16 @@ RSpec.describe Contact, type: :model do
         expect(Contact.apply_sort(valid_params).pluck(:id)).to eq(expected_ids)
         expect(Contact.apply_sort(valid_params).pluck(:id)).to_not eq(not_expected_ids)
       end
-
-      it 'sorts by allowed fields only' do
-        valid_params = { sort: 'last_name' } # must be ignored
-        expected_ids = Contact.order(last_name: :desc).pluck(:id) # default sort
-        not_expected_ids = Contact.order(:last_name).pluck(:id) # params sort
-
-        expect(Contact.apply_sort(valid_params, allowed: [:first_name, :age]).pluck(:id)).to eq(expected_ids)
-        expect(Contact.apply_sort(valid_params, allowed: [:first_name, :age]).pluck(:id)).to_not eq(not_expected_ids)
-      end
     end
 
     context 'with invalid params' do
       let(:anakin) { create(:contact, first_name: 'Anakin', last_name: 'Skywalker', age: 19) }
       let(:harry) { create(:contact, first_name: 'Harry', last_name: 'Potter', age: 13) }
 
-      it 'does not sort by age' do
+      it 'raises an exception' do
         invalid_params = { sort: 'age' }
-        expected_ids = Contact.pluck(:id)
-        not_expected_ids = Contact.order(:age).pluck(:id)
 
-        expect(Contact.apply_sort(invalid_params).pluck(:id)).to eq(expected_ids)
-        expect(Contact.apply_sort(invalid_params).pluck(:id)).to_not eq(not_expected_ids)
+        expect { Contact.apply_sort(invalid_params) }.to raise_exception(Jsonapi::InvalidAttributeError, 'age is not valid as sort attribute.')
       end
     end
   end

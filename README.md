@@ -95,6 +95,25 @@ Or use negative sort `/contacts?sort=-firstname` to sort by firstname in `desc` 
 
 You can even combine multiple sort `/contacts?sort=lastname,-firstname`
 
+
+### Rescuing a Bad Request in Rails
+
+Jsonapi::scope raises a `Jsonapi::InvalidAttributeError` you can [rescue_from](https://guides.rubyonrails.org/action_controller_overview.html#rescue-from) in your `ApplicationController`.
+
+If you want to follow the specification, you **must** respond with a `400 Bad Request`.
+
+```ruby
+class ApplicationController < ActionController::Base
+ rescue_from Jsonapi::InvalidAttributeError, with: :json_api_bad_request
+
+ private
+
+  def json_api_bad_request(exception)
+    render json: { error: exception.message }, status: :bad_request
+  end
+end
+```
+
 ## Contributing
 Do not hesitate to contribute to the project by adapting or adding features ! Bug reports or pull requests are welcome.
 
