@@ -21,12 +21,8 @@ module Jsonapi
       def apply_sort(params = {}, options = { allowed: [], default: {} })
         fields = params.dig(:sort)
 
-        allowed_fields = Array.wrap(options[:allowed]).presence || @sortable_fields
-        allowed_fields = allowed_fields.map(&:to_sym)
-
-        default_order = options[:default].presence || @default_sort
-        default_order = default_order.transform_keys(&:to_sym)
-
+        allowed_fields = (Array.wrap(options[:allowed]).presence || @sortable_fields).map(&:to_sym)
+        default_order = (options[:default].presence || @default_sort).transform_keys(&:to_sym)
         ordered_fields = convert_to_ordered_hash(fields)
 
         ordered_fields.each do |field, _|
