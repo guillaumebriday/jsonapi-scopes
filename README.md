@@ -103,7 +103,7 @@ Jsonapi::scope raises a `Jsonapi::InvalidAttributeError` you can [rescue_from](h
 If you want to follow the specification, you **must** respond with a `400 Bad Request`.
 
 ```ruby
-class ApplicationController < ActionController::Base
+class ApplicationController < ActionController::API
  rescue_from Jsonapi::InvalidAttributeError, with: :json_api_bad_request
 
  private
