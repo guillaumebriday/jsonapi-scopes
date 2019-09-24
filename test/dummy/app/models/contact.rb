@@ -4,6 +4,8 @@ class Contact < ApplicationRecord
   include Jsonapi::Filter
   include Jsonapi::Sort
 
+  has_many :users
+
   # Sorting
   sortable_fields :last_name
   default_sort last_name: :desc
