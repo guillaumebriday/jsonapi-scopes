@@ -4,7 +4,9 @@
 [![](https://img.shields.io/github/license/guillaumebriday/jsonapi-scopes.svg)](https://github.com/guillaumebriday/jsonapi-scopes)
 
 # Jsonapi::Scopes
-This gem allows you to filter and sort an ActiveRecord relation based on a request. This gem follows the [JSON:API specification](https://jsonapi.org/) as closely as possible.
+This gem provides a set of methods which allow you to include, filter and sort an ActiveRecord relation based on a request. It's build to be a simple, robust and scalable system. This gem follows the [JSON:API specification](https://jsonapi.org/) as closely as possible.
+
+This gem is also an unopinionated solution to help you follow the `JSON:API specification`. It does not take care how you want to handle the results. It is a seamless integration in your Rails application and not full library.
 
 ## Installation
 Add this line to your application's Gemfile:
@@ -57,7 +59,7 @@ You can specify multiple matching filter values by passing a comma separated lis
 But `/contacts?filter[last_name]=Wayne` will be completely ignored.
 
 ### Sorting
-The gem add `default_sort` and `sortable_fields` methods to control sort options. **Both are optional** and can be overriding in controllers.
+The gem add `default_sort` and `sortable_fields` methods to control sort options. They can be overridden in controllers.
 
 ```ruby
 class Contact < ActiveRecord::Base
