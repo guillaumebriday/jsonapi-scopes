@@ -40,7 +40,7 @@ class Contact < ActiveRecord::Base
 end
 ```
 
-You can use `apply_filter` in your controller to use the scopes defined with the previous `filter` method :
+You can use `apply_filter` in your controller to use the scopes defined with the previous `filter` method:
 
 ```ruby
 class ContactsController < ApplicationController
@@ -68,7 +68,7 @@ class Contact < ActiveRecord::Base
 end
 ```
 
-You can use `apply_sort` in your controller :
+You can use `apply_sort` in your controller:
 
 ```ruby
 class ContactsController < ApplicationController
@@ -95,6 +95,50 @@ Or use negative sort `/contacts?sort=-firstname` to sort by firstname in `desc` 
 
 You can even combine multiple sort `/contacts?sort=lastname,-firstname`
 
+
+### Included relationships
+This gem supports [request include params](https://jsonapi.org/format/#fetching-includes). It's very useful when you need to load related resources on client side.
+
+```ruby
+class Post < ActiveRecord::Base
+  include Jsonapi::Include
+
+  has_many :comments
+  belongs_to :author
+
+  allowed_includes 'comments', 'author.posts' # List of allowed includes
+end
+```
+
+You can use `apply_include` in your controller:
+
+```ruby
+class PostsController < ApplicationController
+  def index
+    @posts = Post.apply_include(params)
+  end
+end
+```
+
+`apply_include` accepts a second parameter to override data set with `allowed_includes` for a specific controller.
+```ruby
+class PostsController < ApplicationController
+  def index
+    @posts = Post.apply_sort(params, allowed: 'comments') # to allow only comments.
+    # Or @posts = Post.apply_sort(params, allowed: ['comments', 'author'])
+  end
+end
+```
+
+Then you can hit `/posts?include=comments`. You can even combine multiple includes like `/posts?include=comments,author`.
+
+The gem only handle `include` on the ActiveRecord level. If you want to serialize the data, you must do it in your controller.
+
+#### Nested relationships
+
+You can load nested relationships using the dot `.` notation:
+
+`/posts?include=author.posts`.
 
 ### Rescuing a Bad Request in Rails
 
