@@ -4,9 +4,11 @@
 [![](https://img.shields.io/github/license/guillaumebriday/jsonapi-scopes.svg)](https://github.com/guillaumebriday/jsonapi-scopes)
 
 # Jsonapi::Scopes
-This gem provides a set of methods which allow you to include, filter and sort an ActiveRecord relation based on a request. It's build to be a simple, robust and scalable system. This gem follows the [JSON:API specification](https://jsonapi.org/) as closely as possible.
+This gem provides a set of methods which allows you to include, filter and sort an ActiveRecord relation based on a request. It's built to be a simple, robust and scalable system. It follows the [JSON:API specification](https://jsonapi.org/) as closely as possible.
 
-This gem is also an unopinionated solution to help you follow the `JSON:API specification`. It does not take care how you want to handle the results. It is a seamless integration in your Rails application and not full library.
+It's also an unopinionated solution to help you follow the `JSON:API specification`. It doesn't care about how you want to handle the results. 
+
+Moreover, it integrates seamlessly into your Rails application while not being a full library.
 
 ## Installation
 Add this line to your application's Gemfile:
