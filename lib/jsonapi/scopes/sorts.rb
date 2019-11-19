@@ -29,9 +29,15 @@ module Jsonapi
           raise InvalidAttributeError, "#{field} is not valid as sort attribute." unless allowed_fields.include?(field)
         end
 
-        order = ordered_fields.presence || default_order
+        orders = ordered_fields.presence || default_order
 
-        self.order(order)
+        orders.each do |key, direction|
+          if respond_to?(key)
+            self.send(key, direction)
+          elsif column_names.include?(key)
+            self.order([[key, direction]].to_h)
+          end
+        end
       end
 
       private

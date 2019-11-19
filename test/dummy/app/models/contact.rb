@@ -7,7 +7,7 @@ class Contact < ApplicationRecord
   has_many :users
 
   # Sorting
-  sortable_fields :last_name
+  sortable_fields :last_name, :first_name
   default_sort last_name: :desc
 
   # Filters
