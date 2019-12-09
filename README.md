@@ -128,8 +128,8 @@ end
 ```ruby
 class PostsController < ApplicationController
   def index
-    @posts = Post.apply_sort(params, allowed: 'comments') # to allow only comments.
-    # Or @posts = Post.apply_sort(params, allowed: ['comments', 'author'])
+    @posts = Post.apply_include(params, allowed: 'comments') # to allow only comments.
+    # Or @posts = Post.apply_include(params, allowed: ['comments', 'author'])
   end
 end
 ```
