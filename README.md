@@ -25,6 +25,8 @@ $ bundle
 ## Usage
 
 ### Filter
+This gem supports [filtering](https://jsonapi.org/format/#fetching-filtering).
+
 The gem add a `filter` method to define public scopes.
 It acts as a regular scope.
 
@@ -61,6 +63,8 @@ You can specify multiple matching filter values by passing a comma separated lis
 But `/contacts?filter[last_name]=Wayne` will be completely ignored.
 
 ### Sorting
+This gem supports [sorting](https://jsonapi.org/format/#fetching-sorting).
+
 The gem add `default_sort` and `sortable_fields` methods to control sort options. They can be overridden in controllers.
 
 ```ruby
