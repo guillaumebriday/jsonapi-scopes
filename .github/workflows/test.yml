@@ -1,0 +1,27 @@
+name: Test
+
+on: [push]
+
+jobs:
+  rspec:
+    runs-on: ubuntu-latest
+    services:
+      db:
+        image: postgres:11-alpine
+        ports: ['5432:5432']
+        env:
+          POSTGRES_PASSWORD: secret
+    steps:
+      - uses: actions/checkout@v1
+      - uses: actions/setup-ruby@v1
+        with:
+          ruby-version: 2.6.x
+      - env:
+          DATABASE_URL: postgres://postgres:secret@localhost:5432/test
+          RAILS_ENV: test
+        run: |
+          sudo apt-get -yqq install libpq-dev libsqlite3-dev
+          gem install bundler --no-document
+          bundle install -j $(nproc) --quiet
+          cd test/dummy
+          bundle exec rspec
