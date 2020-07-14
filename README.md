@@ -8,7 +8,7 @@
 # Jsonapi::Scopes
 This gem provides a set of methods which allows you to include, filter and sort an ActiveRecord relation based on a request. It's built to be a simple, robust and scalable system. It follows the [JSON:API specification](https://jsonapi.org/) as closely as possible.
 
-It's also an unopinionated solution to help you follow the `JSON:API specification`. It doesn't care about how you want to handle the results. 
+It's also an unopinionated solution to help you follow the `JSON:API specification`. It doesn't care about how you want to handle the results.
 
 Moreover, it integrates seamlessly into your Rails application while not being a full library.
 
