@@ -1,4 +1,6 @@
 [![Donate](https://img.shields.io/badge/Donate-PayPal-green.svg)](https://www.paypal.me/guillaumebriday)
+![](https://github.com/guillaumebriday/jsonapi-scopes/workflows/Lint/badge.svg)
+![](https://github.com/guillaumebriday/jsonapi-scopes/workflows/Test/badge.svg)
 [![](https://img.shields.io/gem/dt/jsonapi-scopes.svg)](https://rubygems.org/gems/jsonapi-scopes)
 [![](https://img.shields.io/gem/v/jsonapi-scopes.svg)](https://rubygems.org/gems/jsonapi-scopes)
 [![](https://img.shields.io/github/license/guillaumebriday/jsonapi-scopes.svg)](https://github.com/guillaumebriday/jsonapi-scopes)
