@@ -81,6 +81,7 @@ GEM
     parallel (1.17.0)
     parser (2.6.4.1)
       ast (~> 2.4.0)
+    pg (1.2.3)
     rack (2.0.7)
     rack-test (1.1.0)
       rack (>= 1.0, < 3)
@@ -159,6 +160,7 @@ DEPENDENCIES
   database_cleaner
   factory_bot
   jsonapi-scopes!
+  pg
   rspec-rails
   rubocop
   sqlite3
