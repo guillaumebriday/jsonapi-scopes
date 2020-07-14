@@ -18,6 +18,6 @@ gemspec
 
 gem 'database_cleaner'
 gem 'factory_bot'
+gem 'pg'
 gem 'rspec-rails'
 gem 'rubocop'
-gem 'pg'
